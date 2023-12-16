@@ -17,11 +17,13 @@ type Form struct {
 
 // Variables
 var tmpl *template.Template
+var port string
+var templateLocation string = "./src/templates/*"
 
 // Functions
 func sendCustomMail(sender, password, smtpHost, smtpPort string, receivers []string) {
 
-	customMail := template.Must(template.ParseFiles("./templates/confirmation.html"))
+	customMail := template.Must(template.ParseGlob(templateLocation))
 
 	var body bytes.Buffer
 
@@ -42,8 +44,23 @@ func sendCustomMail(sender, password, smtpHost, smtpPort string, receivers []str
 
 func main() {
 
+	port = "3000"
+
 	// Parse templates
-	tmpl = template.Must(template.ParseGlob("./templates/*"))
+	tmpl = template.Must(template.ParseGlob(templateLocation))
+
+	// TESTS ***
+	// http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
+	// 	tmpl.ExecuteTemplate(w, "index.html", "")
+	// 	return
+	// })
+
+	// http.HandleFunc("/confirmation", func(w http.ResponseWriter, r *http.Request) {
+	// 	fmt.Println("\n confirmation!")
+	// 	tmpl.ExecuteTemplate(w, "confirmation.html", "")
+	// 	return
+	// })
+	// END TESTS ***
 
 	// Handlers
 	http.HandleFunc("/signup", func(w http.ResponseWriter, r *http.Request) {
@@ -79,9 +96,9 @@ func main() {
 
 	})
 
-	fmt.Println("Server listening on 3000")
+	fmt.Printf("Server listening on %s", port)
 
-	if err := http.ListenAndServe(":3000", nil); err != nil {
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
 		log.Fatal(err)
 	}
 
