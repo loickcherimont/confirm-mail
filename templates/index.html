@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    {{- /* Display the following line if user doesn't fill all fields */ -}}
+    {{ if .Error }}
+    <p class="border border-red-500 rounded bg-red-200/75 text-red-500 p-2 m-2">Please all fields are required!</p>
+    {{ end }}
+
+
+    {{- /* Display the following line if user fills all fields */ -}}
+    {{if .Success }}
+    <p class="border border-green-500 rounded bg-green-200/75 text-green-500 p-2 m-2">
+        Registration successfull. You'll get an email confirmation soon!
+    </p>
+    {{ end }}
+
+    {{template "form.html"}}
+
+
+</body>
+
+</html>
