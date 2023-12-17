@@ -1,5 +1,13 @@
 package main
 
+/*
+
+**************************** IMPORTANT ********************
+Before commit, remove all sensitive data!!!
+************************************** ********************
+
+*/
+
 import (
 	"bytes"
 	"fmt"
@@ -18,9 +26,17 @@ type Form struct {
 // Variables
 var tmpl *template.Template
 var port string
-var templateLocation string = "./src/templates/*"
+var templateLocation string = "./templates/*"
+var fs http.Handler
 
 // Functions
+
+// Serve CSS, JS files
+func serveStaticFiles() {
+	fs := http.FileServer(http.Dir("static/"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+}
+
 func sendCustomMail(sender, password, smtpHost, smtpPort string, receivers []string) {
 
 	customMail := template.Must(template.ParseGlob(templateLocation))
@@ -43,6 +59,8 @@ func sendCustomMail(sender, password, smtpHost, smtpPort string, receivers []str
 }
 
 func main() {
+
+	serveStaticFiles()
 
 	port = "3000"
 
