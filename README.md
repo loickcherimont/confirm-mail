@@ -10,11 +10,13 @@
 <!-- ![MainImageForProject](https://placehold.co/500x300) -->
 
 <!-- 
-    INTRODUCTION
+    INTRODUCTION => ABOUT
     Short summary explaining the reasons of the project and tell about worked concepts
 
     Ex: This is a Front-End project made with HTML, CSS for design and JavaScript to work on client-side validation (Constraint API)
 -->
+
+## :information_source: About
 This is a back-end project made with Go(lang) on mail confirmation
 
 <!-- 
@@ -30,83 +32,39 @@ This is a back-end project made with Go(lang) on mail confirmation
 - Go 1.20
 - Tailwindcss 3.3.6
 
-<!-- 
-    PREREQUISITES
-    Tell about the required options, softwares, knowledges to possess 
-    to run correctly the project 
 
-    Ex: Setup username and password for database in database.go
--->
-## :warning: Prerequisites
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris luctus condimentum tortor a cursus.
+## :gear: Setup 
+
+### Prerequisites
+
+Create a `.env` file at the root of the project.  
+Add your data in :  
 
 ```bash
-# Lorem ipsum dolor sit amet
-# Lorem ipsum dolor sit amet
-# Lorem ipsum dolor sit amet
+# Replace the values by your own
+# Don't forget to remove them before committing
+SENDER_ADDRESS=your_email
+SENDER_PASSWORD=your_password
 ```
 
-<!-- 
-    SETUP
-    Explain using command lines, the steps to follow to setup the project
-    At the end show, the expected result with a image   
+### Guidelines
 
-    Ex: 
-    1. Download the whole project `Travel` on your system
-    2. Open your terminal in `Travel`
-    ```
-    cd Travel
-    ```
-    3. In `Travel` directory, run:
-    ```
-    go run github.com/loickcherimont/Travel/main
-    ```
-    4. If there is no error. Go on your favorite browser and use this line in your URL address bar
-    ```
-    http://localhost:8080/travel
-    ```
-    5. Here you are! Welcome in the main page of the Web application
-
-    ![Main page of the application](assets/images/readme_images/mainpage.png)
--->
-
-<!-- 
-## SETUP complete with this!!!
-
-- Run the server with : go run ./cmd/
-
- -->
-
-<!-- ## :inbox_tray: Setup
-1. Lorem ipsum dolor sit amet, `consectetur` adipiscing elit
-2. Lorem **ipsum dolor sit** amet, consectetur adipiscing elit
 ```bash
-# Lorem ipsum dolor sit amet
-# Lorem ipsum dolor sit amet
-# Lorem ipsum dolor sit amet
+# 1. Clone the project into your Workspace
+git clone https://github.com/loickcherimont/confirm-mail
+
+# 2. Run the server
+go run ./cmd/
+
+# 3. The project is ready!
 ```
-3. Lorem ipsum dolor sit amet, *consectetur adipiscing elit* -->
-
-<!-- ![ExpectResultsAfterSetup](https://placehold.co/300x200) -->
-
-<!-- 
-    FEATURES
-    List of the main new features, fixes to bring on the project
-
-    Ex:
-    - Setup Night/Day mode
-    - Add animation when music is playing
--->
 
 ## :rocket: Features
-~~- Display **Success message** when user filled all the fields~~
 - Send a styled HTML mail to user *(optional) => Hermes if not solution!*
 - Store receiver address and password in database *(later with DB)*
 - Write the README
-~~- Structure the code **Golang**~~
-~~- Structure the tree~~
-*- Responsive design*
-~~- Prevent the basic template to disappear (cf. template)  ~~
+- *Responsive design*
+- To Fix : Display styled templates with Tailwindcss
 
 <!-- 
     LICENSE
